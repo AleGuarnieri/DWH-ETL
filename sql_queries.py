@@ -64,7 +64,7 @@ songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplays
 (
     songplay_id BIGINT IDENTITY(0,1), 
-    start_time TIMESTAMP,
+    start_time TIMESTAMP NOT NULL,
     user_id INT NOT NULL, 
     level VARCHAR, 
     song_id VARCHAR, 
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS artists
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time
 (
-    start_time TIMESTAMP, 
+    start_time TIMESTAMP NOT NULL, 
     hour INT, 
     day INT, 
     week INT, 
