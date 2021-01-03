@@ -4,18 +4,47 @@ from sql_queries import create_table_queries, drop_table_queries
 
 
 def drop_tables(cur, conn):
+    """
+    queries necessary to drop tables
+    if they exist are executed.
+    
+    Arguments:
+        cur: cursor for database connection
+        conn: connection to the database
+    
+    Returns:
+        None
+    """
+        
     for query in drop_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def create_tables(cur, conn):
+    """
+    queries necessary to create tables are 
+    executed.
+    
+    Arguments:
+        cur: cursor for database connection
+        conn: connection to the database
+    
+    Returns:
+        None
+    """
+        
     for query in create_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def main():
+    """
+    connection to the existing DWH is created,
+    functions to drop and create tables are called
+    """
+        
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
 
